@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/list.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../../server.js"></script>
+    <script src="../js/list.js"></script>
+</head>
+<body>
+
+    <div id="select_grade">
+        <div class="select-style" style="float: left;">
+            <select id="id_grade" onchange="chageGrade()">
+                <option value="0">학년</option>
+                <option value="1">1학년</option>
+                <option value="2">2학년</option>
+                <option value="3">3학년</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="select_class">
+        <div class="select-style" style="float: left;">
+            <select class="s_class">
+                <option value="0">반</option>
+                <option value="1">1반</option>
+                <option value="2">2반</option>
+                <option value="3">3반</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="select_class">
+      <div class="select-style">
+          <select class="s_class">
+              <option value="0">시간</option>
+              <option value="1">아침점호</option>
+              <option value="1">아침</option>
+              <option value="2">점심</option>
+              <option value="3">저녁</option>
+              <option value="1">기숙사입실</option>
+          </select>
+      </div>
+    </div>
+
+
+    <div id="tables">
+        <section>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>날짜</th>
+                    <th>학년</th>
+                    <th>반</th>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>체온</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0" id="record">
+                <tbody>
+                  <!-- <tr>
+                    <td>2020.05.31.</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>김태오</td>
+                    <td>36.5</td>
+                  </tr>
+                  <tr>
+                    <td>2020.05.31.</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>5</td>
+                    <td>이서연</td>
+                    <td>36.6</td>
+                  </tr>
+                  <tr>
+                    <td>2020.05.31.</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>18</td>
+                    <td>이지민</td>
+                    <td>36.7</td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+        </section>
+    </div>
+    
+      
+    
+</body>
+</html>
