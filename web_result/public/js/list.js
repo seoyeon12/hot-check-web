@@ -4,13 +4,13 @@ var temp;
 var recordTime;
 var index;
 
-$(window).on("load resize ", function() {
+$(window).on("load resize ", function () {
     var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-    $('.tbl-header').css({'padding-right':scrollWidth});
-  }).resize();
+    $('.tbl-header').css({ 'padding-right': scrollWidth });
+}).resize();
 
 
-function chageGrade(){
+function chageGrade() {
     var langSelect = document.getElementById("id_grade");
     // select element에서 선택된 option의 value가 저장된다.
     var selectValue = langSelect.options[langSelect.selectedIndex].value;
@@ -18,43 +18,44 @@ function chageGrade(){
 }
 
 
-$(function() {
-    var msgFromServer;
-    $.get( "/searchdata", function( searchdata ) {
-        msgFromServer = searchdata.text;
-        //console.log(data[0]);
+$(function () {
 
-        $.each(searchdata, function(idx, row){
-            recordTime = searchdata[idx].recordTime;
-            temp = searchdata[idx].temp;
-            index = searchdata[idx].id;
-            console.log('id is ' + index + '     temp is : ' + temp);
+    $.ajax({
+        url: '/searchdata', 
+        dataType: 'json', 
+        async: false, 
+        success: function (allrecord) { 
 
-            $.get( "/alldata", function( alldata ) {
-                msgFromServer = alldata;
-                $.each(alldata, function(idxx, row){
-                    console.log(index);
-                    if(alldata[idxx].id == index){  // searchData에서 꺼내온 값과 id가 일치하다면
-                        console.log("!"+alldata[idxx].id);
-                        $('#record > tbody:last').append('<tr><td>'+recordTime+'<td>'+alldata[idxx].grade+'</td>'+'<td>'+alldata[idxx].class+'</td>'+'<td>'+alldata[idxx].classNumber+'</td>'+'<td>'+alldata[idxx].name+'</td>'+'<td>'+temp+'</td></tr>');
-                        return idxx;
-                    }
-                })
+            $.ajax({
+                url: '/alldata', 
+                dataType: 'json', 
+                async: false, 
+                success: function (alluser) { 
         
-                //console.log(alldata[index]);
+                    $.each(allrecord, function (idx, row) {
+                        recordTime = allrecord[idx].recordTime;
+                        temp = allrecord[idx].temp;
+                        index = allrecord[idx].id;
+                        console.log('id is ' + index + '     temp is : ' + temp);
+
+                        $.each(alluser, function (idxx, row) {
+                            if (alluser[idxx].id == index) {  // searchData에서 꺼내온 값과 id가 일치하다면
+                                console.log("!" + alluser[idxx].id);
+                                $('#record > tbody:last').append('<tr><td>' + recordTime + '<td>' + alluser[idxx].grade + '</td>' + '<td>' + alluser[idxx].class + '</td>' + '<td>' + alluser[idxx].classNumber + '</td>' + '<td>' + alluser[idxx].name + '</td>' + '<td>' + temp + '</td></tr>');
+                                return idxx;
+                            }
+                        });
+
+                    });
+            
+        
+                } 
             });
 
-        })
-        // recordTime = data[0].recordTime;
-        // temp = data[0].temp;
-        // index = data[0].id;
-        // console.log('id is ' + index + '     temp is : ' + temp);
-        //$('#record > tbody:last').append('<tr><td>'+data[0].recordTime+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].temp+'</td></tr>');
-    
-        
+        } 
     });
 
-    
+
 });
 
 // $(function() {
@@ -79,7 +80,7 @@ $(function() {
 //                         return idxx;
 //                     }
 //                 })
-        
+
 //                 //console.log(alldata[index]);
 //             });
 
@@ -89,11 +90,11 @@ $(function() {
 //         // index = data[0].id;
 //         // console.log('id is ' + index + '     temp is : ' + temp);
 //         //$('#record > tbody:last').append('<tr><td>'+data[0].recordTime+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].recordCode+'</td>'+'<td>'+data[0].temp+'</td></tr>');
-    
-        
+
+
 //     });
 
-    
+
 // });
 
 // function chageGrade(){
