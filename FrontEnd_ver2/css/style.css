@@ -1,0 +1,381 @@
+/* 폰트 스타일, 기본 스타일 'Roboto', 포인트 'BMDOHYEON'*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+@font-face { 
+    font-family: 'BMDOHYEON'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+/* 모바일용 CSS */
+#wrap{
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: 0 auto;
+}
+/*select 박스 style*/
+.selectFilter_section{
+    width: 100%;
+    height: 120px;
+    order: 1;
+    margin-top: 20px;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.select-style {
+    border: 1px solid rgb(45, 206, 168);
+    box-sizing: border-box;
+    width: 45%;
+    border-radius: 3px;
+    float: left;
+}
+.select-style input{
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+}
+.select-style select{
+    padding: 5px 8px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+}
+.select-style select:focus{
+    outline: none;
+}
+#filter{
+    width: 100%;
+    color: #fff;
+    background-color: rgb(45, 206, 168);
+    border: none;
+}
+#filter:hover{
+    color: rgb(45, 206, 168);
+    background-color: #fff;
+    border: 1px solid rgb(45, 206, 168);
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.36);;
+}
+
+/* 컨텐츠들 */
+.second_row_section{
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    order: 2;
+    margin: 10px 0px;
+}
+.second_row_section > div{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 현 상황 박스 */
+.present_section{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(45, 206, 168);
+    height: 200px;
+}
+/* 시계와 날짜, 타이틀 */
+.title_div{
+    flex-grow: 1;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(45, 206, 168);
+    box-sizing: border-box;
+}
+.title_div h1{
+    font-size: 2.5em;
+    font-family: BMDOHYEON, sans-serif;
+    text-transform: uppercase;
+    margin-top: 10%;
+}
+.clock{
+    text-shadow: 0 0 5px #00c6ff;
+}
+#timer{
+    font-size: 1.5em;
+    margin-bottom: 5%;
+}
+.point {
+    /* position: relative; */
+    -moz-animation: mymove 1s ease infinite;
+    -webkit-animation: mymove 1s ease infinite;
+}
+/* 카운트 카드 */
+.countCard_div{
+    flex-grow: 1;
+    background-color: rgba(255,255,255,0.3);
+    position: relative;
+}
+.js-count {
+    font-family: BMDOHYEON, sans-serif;
+}
+.calorie__count__consumed span, .calorie__count__remaining span {
+    display: block;
+}
+.calorie__count__remaining {
+    background-color: #fff;
+    border: 1px solid rgb(45, 206, 168);
+    box-shadow: 19px 19px 49px 0px rgba(0, 0, 0, 0.36);
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    padding: 5% 10%;
+    width: 40%;
+    max-width: 120px;
+}
+.calorie__count__consumed {
+    margin: 5% 10%;
+}
+
+/* 도넛 그래프 박스 */
+.donutGraph_section{
+    height: 200px;
+    -webkit-animation: load 1s ease-out forwards;
+    -moz-animation: load 1s ease-out forwards;
+    animation: load 1s ease-out forwards;
+    font-family: BMDOHYEON, sans-serif;
+    font-weight: 500;
+    text-align: center;
+    /* padding: 50px 40px 0px 40px; */
+    border: 1px solid rgb(45, 206, 168);
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.36);
+    display: none;
+}
+.chart--calorie{
+    margin-top: 12%;
+}
+/* 아래에 있는 도넛그래프*/
+.chart__background {
+    fill: none;
+}
+/* 위에 있는 도넛그래프 */
+.chart__foreground {
+-webkit-transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+transform: rotate(180deg);
+
+/*EASING*/
+-webkit-transition: all 1500ms cubic-bezier(0.495, 0, 0.000, 1); /* older webkit */
+-webkit-transition: all 1500ms cubic-bezier(0.495, -0.105, 0.000, 1.230); 
+    -moz-transition: all 1500ms cubic-bezier(0.495, -0.105, 0.000, 1.230); 
+    -o-transition: all 1500ms cubic-bezier(0.495, -0.105, 0.000, 1.230); 
+        transition: all 1500ms cubic-bezier(0.495, -0.105, 0.000, 1.230); /* custom */
+
+-webkit-transition-timing-function: cubic-bezier(0.495, 0, 0.000, 1); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.495, -0.105, 0.000, 1.230); 
+    -moz-transition-timing-function: cubic-bezier(0.495, -0.105, 0.000, 1.230); 
+    -o-transition-timing-function: cubic-bezier(0.495, -0.105, 0.000, 1.230); 
+        transition-timing-function: cubic-bezier(0.495, -0.105, 0.000, 1.230); /* custom */
+
+    /*FIN EASING*/
+    fill: none;
+    left: 0;
+    position: absolute;
+    stroke-dasharray: 630px;
+    stroke-dashoffset: 630px;
+    stroke-linecap: round;
+    stroke-width: 20px;
+    stroke: rgb(45, 206, 168);
+}
+/* % 글 */
+.chart__count {
+    font-family: "Do Hyeon", sans-serif;
+    position: relative;
+}
+.chart__count div {
+    color: rgb(37, 193, 146);
+    font-size: 45px;
+}
+.chart .chart__container {
+    display: inline-block;
+    position: relative;
+}
+.chart--calorie .chart__count {
+    top: -150px;
+}
+
+/* 세부정보 박스 */
+.detailInfo_section{
+    display: none;
+}
+
+/* 테이블 */
+.table_section{
+    width: 100%;
+    order: 3;
+}
+.section{
+    flex-grow: 1;
+    line-height: 50px;
+    text-align: center;
+}
+/* 테이블 헤더*/
+.tableheader{
+    height: 50px;
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #fff;
+}
+/* 테이블 바디*/
+.tablebody{
+    border: 1px solid rgb(37, 185, 181);
+}
+/* 테이블 하나의 행*/
+.studentSection{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    border-bottom: solid 1px rgba(41, 41, 41, 0.08);
+}
+.studentSection:hover{
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.36);
+    background-color: #c5c5c53d;
+    color: rgb(0, 0, 0);
+}
+.cardId{ display: none; }
+.Non{ font-size: 50px; }
+.over{ background-color: crimson; color: #fff; }
+
+/* PC, 태블릿용 CSS */
+@media all and (min-width: 768px) {
+    /*select 박스 style*/
+    .selectFilter_section{
+        height: 35px;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+    .select-style{
+        width: 11.45%;
+        margin-right: 10px;
+    }
+    #filter{
+        width: 11.45%;
+        height: 35px;
+    }
+
+    /*가운데 3개 컨텐츠들*/
+    .second_row_section{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: flex-start;
+        width: 100%;
+        height: 350px;
+        order: 2;
+    }
+    .second_row_section > div{
+        width: 30%;
+        height: 330px;
+        max-width: 450px;
+        margin-right: 2%;
+    }
+
+    /* 현 상황 박스 */
+    .title_div h1{
+        margin-top: 10.5%;
+    }
+    /* 카운트 카드 */
+    .calorie__count__remaining {
+        right: 5px;
+        top: -15px;
+        max-width: 200px;
+    }
+
+    /* 도넛 그래프 박스 */
+    .donutGraph_section{
+        display: block;
+    }
+
+    /* 세부정보 박스 */
+    .detailInfo_section{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(45, 206, 168);
+        font-size: 1em;
+    }
+    .codeNum {
+        height: 40%;
+        text-align: center;
+        padding-top: 9.3846%;
+    }
+    .student-info {
+        height: 60%;
+        background-color: rgb(45, 206, 168);
+        color: #fff;
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.36);
+        text-align: left;
+        padding: 9.3846%;
+    }
+    #temp {
+        font-size: 1.7em;
+    }
+}
+
+/* .point에서 사용 */
+@-webkit-keyframes mymove {
+    0% {opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}
+
+50% {
+    opacity: 0;
+    text-shadow: none;
+}
+
+100% {
+    opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}   
+}
+@-moz-keyframes mymove {
+    0% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px #00c6ff;
+    }
+
+    50% {
+        opacity: 0;
+        text-shadow: none;
+    }
+
+    100% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px #00c6ff;
+    };
+}
+
+/* 도넛 그래프에서 사용 (calorie-counter) */
+@-moz-keyframes load {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
